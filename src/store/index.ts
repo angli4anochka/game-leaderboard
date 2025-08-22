@@ -1,7 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import gameSlice from './slices/gameSlice';
-import { RootState } from '../types';
 
 export const store = configureStore({
   reducer: {
@@ -15,8 +14,8 @@ export const store = configureStore({
     }),
 });
 
+export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-export type { RootState };
 
 // Типизированные хуки
 export const useAppDispatch = () => useDispatch<AppDispatch>();
